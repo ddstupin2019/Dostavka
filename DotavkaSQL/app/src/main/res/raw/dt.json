@@ -1,0 +1,63 @@
+{
+  "ekb": {
+    "numberOfCompletedOrdersTheDay": "50",
+    "profitOfCompletedOrdersTheDay": "5000000",
+    "numberLong-distanceOrdersTheDay": "5",
+    "profitLong-distanceOrdersTheDay": "40000",
+    "numberOfUnfulfilledOrdersTheDay": "5",
+    "profitOfUnfulfilledOrdersTheDay": "20000",
+    "numberOfCompletedOrdersTheMonth": [],
+    "profitOfCompletedOrdersTheMonth": [],
+    "numberLong-distanceOrdersTheMonth": [],
+    "profitLong-distanceOrdersTheMonth": [],
+    "numberOfUnfulfilledOrdersTheMonth": [],
+    "profitOfUnfulfilledOrdersTheMonth": [],
+    "Data":[]
+    
+  },
+  "chelib": {
+    "numberOfCompletedOrdersTheDay": "25",
+    "profitOfCompletedOrdersTheDay": "2500000",
+    "numberLong-distanceOrdersTheDay": "3",
+    "profitLong-distanceOrdersTheDay": "20000",
+    "numberOfUnfulfilledOrdersTheDay": "3",
+    "profitOfUnfulfilledOrdersTheDay": "10000",
+    "numberOfCompletedOrdersTheMonth": [],
+    "profitOfCompletedOrdersTheMonth": [],
+    "numberLong-distanceOrdersTheMonth": [],
+    "profitLong-distanceOrdersTheMonth": [],
+    "numberOfUnfulfilledOrdersTheMonth": [],
+    "profitOfUnfulfilledOrdersTheMonth": [],
+    "Data":[]
+  },
+  "kurgan": {
+    "numberOfCompletedOrdersTheDay": "100",
+    "profitOfCompletedOrdersTheDay": "10000000",
+    "numberLong-distanceOrdersTheDay": "10",
+    "profitLong-distanceOrdersTheDay": "80000",
+    "numberOfUnfulfilledOrdersTheDay": "10",
+    "profitOfUnfulfilledOrdersTheDay": "40000",
+    "numberOfCompletedOrdersTheMonth": [],
+    "profitOfCompletedOrdersTheMonth": [],
+    "numberLong-distanceOrdersTheMonth": [],
+    "profitLong-distanceOrdersTheMonth": [],
+    "numberOfUnfulfilledOrdersTheMonth": [],
+    "profitOfUnfulfilledOrdersTheMonth": [],
+    "Data":[]
+  },
+  "tumen": {
+    "numberOfCompletedOrdersTheDay": "25",
+    "profitOfCompletedOrdersTheDay": "2500000",
+    "numberLong-distanceOrdersTheDay": "3",
+    "profitLong-distanceOrdersTheDay": "20000",
+    "numberOfUnfulfilledOrdersTheDay": "3",
+    "profitOfUnfulfilledOrdersTheDay": "10000",
+    "numberOfCompletedOrdersTheMonth": [],
+    "profitOfCompletedOrdersTheMonth": [],
+    "numberLong-distanceOrdersTheMonth": [],
+    "profitLong-distanceOrdersTheMonth": [],
+    "numberOfUnfulfilledOrdersTheMonth": [],
+    "profitOfUnfulfilledOrdersTheMonth": [],
+    "Data":[]
+  }
+}
