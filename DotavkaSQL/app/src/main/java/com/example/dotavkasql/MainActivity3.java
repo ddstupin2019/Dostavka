@@ -3,54 +3,30 @@ package com.example.dotavkasql;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-static MyDB database;
-TextView e1,e2,e3,e4,c1,c2,c3,c4,t1,t2,t3,t4,k1,k2,k3,k4;
-static Root root;
+public class MainActivity3 extends AppCompatActivity implements View.OnClickListener {
 Button b1;
-    @SuppressLint("SetTextI18n")
+TextView e1,e2,e3,e4,c1,c2,c3,c4,t1,t2,t3,t4,k1,k2,k3,k4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main3);
         init();
-        ins();
-        print();
-    }
-    public void ins(){
-        InputStream inputStream = getResources().openRawResource(R.raw.dt);
-        GsonParser gsonParser = new GsonParser();
-        root = gsonParser.parce(inputStream);
-        Log.d("Main",root.Tumen.getNumberLongdistanceOrdersTheDay());
-        Output e=Support.ekb(root),t=Support.tum(root),k=Support.kur(root),c=Support.chel(root);
-        e.setTown("ed");
-        t.setTown("td");
-        k.setTown("kd");
-        c.setTown("cd");
-        e.setDate(1);
-        t.setDate(1);
-        k.setDate(1);
-        c.setDate(1);
-        Log.d("Main", e.toString());
-        Log.d("Main", String.valueOf(database.insertM(e)));
-        database.insertM(t);
-        database.insertM(k);
-        database.insertM(c);
+//        ins();
+//        print();
+
     }
     public void init(){
-        database = new MyDB(this);
 
         e1=findViewById(R.id.TextView1);
         e2=findViewById(R.id.TextView2);
@@ -72,47 +48,53 @@ Button b1;
         k3=findViewById(R.id.TextView15);
         k4=findViewById(R.id.TextView16);
 
-        b1=findViewById(R.id.button);
+        b1=findViewById(R.id.button1);
         b1.setOnClickListener(this);
 
     }
+    public void ins(){
+        Root root=MainActivity.root;
+        Support.chel(root);
+        Support.ekbM(root);
+        Support.kurM(root);
+        Support.tumM(root);
+    }
     @SuppressLint("SetTextI18n")
-    public  void print(){
+    public void print(){
 
-       Output e=database.select("ed",1);
-       Log.e("Main",e.toString());
-       e1.setText(e.KoleT+"");
-       e2.setText(e.ProfinTD+"");
-       e3.setText(e.LongT+" "+e.KprD+"%");
-       e4.setText(e.KoleF+" "+e.KprF+"%");
+        DateFormat dateFormat = new SimpleDateFormat("MMyyyy");
+        Date date = new Date();
+        int d = Integer.parseInt(dateFormat.format(date));
 
-        Output c=database.select("cd", 1);
-        Log.e("Main",c.toString());
+        Output e=MainActivity.database.select("ed",d);
+        e1.setText(e.KoleT+"");
+        e2.setText(e.ProfinTD+"");
+        e3.setText(e.LongT+" "+e.KprD+"%");
+        e4.setText(e.KoleF+" "+e.KprF+"%");
+
+        Output c=MainActivity.database.select("cd", d);
         c1.setText(c.KoleT+"");
         c2.setText(c.ProfinTD+"");
         c3.setText(c.LongT+" "+c.KprD+"%");
         c4.setText(c.KoleF+" "+c.KprF+"%");
 
-        Output t=database.select("td", 1);
-        Log.e("Main",t.toString());
+        Output t=MainActivity.database.select("td", d);
         t1.setText(t.KoleT+"");
         t2.setText(t.ProfinTD+"");
         t3.setText(t.LongT+" "+t.KprD+"%");
         t4.setText(t.KoleF+" "+t.KprF+"%");
 
-        Output k=database.select("kd",1);
-        Log.e("Main",k.toString());
+        Output k=MainActivity.database.select("kd", d);
         k1.setText(k.KoleT+"");
         k2.setText(k.ProfinTD+"");
         k3.setText(k.LongT+" "+k.KprD+"%");
         k4.setText(k.KoleF+" "+k.KprF+"%");
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.button:
-                Intent intent = new Intent(MainActivity.this,MainActivity3.class);
+            case R.id.button1:
+                Intent intent = new Intent(MainActivity3.this,MainActivity.class);
                 startActivity(intent);
                 break;
         }

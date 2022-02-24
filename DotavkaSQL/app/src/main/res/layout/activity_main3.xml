@@ -9,8 +9,8 @@
 
     <TableLayout
         android:id="@+id/tableLayout1"
-        android:layout_width="389dp"
-        android:layout_height="592dp"
+        android:layout_width="395dp"
+        android:layout_height="587dp"
         android:layout_marginStart="4dp"
         android:shrinkColumns="*"
         android:stretchColumns="*"
@@ -26,7 +26,7 @@
             android:gravity="center">
 
             <TextView
-                android:text="День"
+                android:text="Месяц"
                 android:textColor="@color/white"
                 android:textSize="30dp"
                 android:textStyle="bold" />
@@ -266,10 +266,10 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Месяц"
+        android:text="День"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.88"

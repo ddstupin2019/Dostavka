@@ -16,7 +16,7 @@ import java.util.List;
 public class MyDB {
     private static String DATABASE_NAME = "simple.db";
     private static String TABLE_NAME = "days";
-    private static int DATABASE_VERSION = 4;
+    private static int DATABASE_VERSION = 11;
 
     private String COLUMN_ID = "_id";
     private String COLUMN_KoleT = "KoleT";
@@ -26,6 +26,7 @@ public class MyDB {
     private String COLUMN_KprF = "KprF";
     private String COLUMN_ProfinTD= "ProfinTD";
     private String COLUMN_town= "Town";
+    private String COLUM_DATE="Date";
 
     private int NUM_COLUMN_ID = 0;
     private int NUM_COLUMN_KoleT = 1;
@@ -35,6 +36,7 @@ public class MyDB {
     private int NUM_COLUMN_KprF = 5;
     private int NUM_COLUMN_ProfinTD = 6;
     private int NUM_COLUMN_town=7;
+    private int NUM_COLUM_DATE=8;
 
     private SQLiteDatabase database;
 
@@ -43,8 +45,8 @@ public class MyDB {
         database = mOpenHelper.getWritableDatabase();
     }
 
-    public Output select(String town){
-        Cursor cursor = database.query(TABLE_NAME, null, COLUMN_town + "=" + town, null, null, null, null);
+    public Output select(String town, Integer a){
+        Cursor cursor = database.query(TABLE_NAME, null, COLUMN_town+"="+"'"+town+"' AND "+COLUM_DATE+"="+a, null, null, null, null);
         Output output;
         if (cursor.moveToFirst()) {
             output = new Output();
@@ -61,7 +63,7 @@ public class MyDB {
         Log.d("Ny","null");
         return null;
     }
-    public long insertM(Output output,String n){
+    public long insertM(Output output){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_KoleT, output.KoleT);
         contentValues.put(COLUMN_LongT, output.LongT);
@@ -69,7 +71,8 @@ public class MyDB {
         contentValues.put(COLUMN_KoleF, output.KoleF);
         contentValues.put(COLUMN_KprF, output.KprF);
         contentValues.put(COLUMN_ProfinTD, output.ProfinTD);
-        contentValues.put(COLUMN_town, n);
+        contentValues.put(COLUMN_town, output.town);
+        contentValues.put(COLUM_DATE, output.date);
         return database.insert(TABLE_NAME, null, contentValues);
     }
 
@@ -89,7 +92,9 @@ public class MyDB {
                     COLUMN_KoleF + " integer not null, " +
                     COLUMN_KprF + " integer not null, " +
                     COLUMN_ProfinTD + " integer not null,"+
-                    COLUMN_town + " text not null);";
+                    COLUMN_town + " text not null, "+
+                    COLUM_DATE + "integer not null);";
+
             db.execSQL(query);
         }
 
